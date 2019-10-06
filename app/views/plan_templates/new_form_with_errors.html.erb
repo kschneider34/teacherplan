@@ -1,4 +1,3 @@
-<!-- Validation failure messages -->
 <% if @plan.present? %>
   <% if @plan.errors.any? %>
     <% @plan.errors.full_messages.each do |message| %>
@@ -16,45 +15,31 @@
 
 <hr>
 
-<!-- Form plan start -->
 <form action="/create_plan" method="post">
-<!-- Form plan end -->
 
-  <!-- Label and input for plan_description start -->
   <div class="form-group">
     <label for="plan_description">
       Plan description
     </label>
 
-    <!-- Input for plan_description start -->
     <input type="text" id="plan_description" name="plan_description" class="form-control" value="<%= @plan.plan_description %>">
-    <!-- Input for plan_description end -->
   </div>
-  <!-- Label and input for plan_description end -->
 
-  <!-- Label and input for coach_id start -->
   <div class="form-group">
     <label for="coach_id">
       Coach
     </label>
 
-    <!-- Input for coach_id start -->
     <%= select_tag(:coach_id, options_from_collection_for_select(Teacher.all, :id, :name, @plan.coach_id), :class => "form-control") %>
-    <!-- Input for coach_id end -->
   </div>
-  <!-- Label and input for coach_id end -->
 
-  <!-- Label and input for plan_owner_id start -->
   <div class="form-group">
     <label for="plan_owner_id">
       Plan owner
     </label>
 
-    <!-- Input for plan_owner_id start -->
     <%= select_tag(:plan_owner_id, options_from_collection_for_select(Teacher.all, :id, :name, @plan.plan_owner_id), :class => "form-control") %>
-    <!-- Input for plan_owner_id end -->
   </div>
-  <!-- Label and input for plan_owner_id end -->
 
   <button class="btn btn-block btn-outline-secondary">
     Create plan

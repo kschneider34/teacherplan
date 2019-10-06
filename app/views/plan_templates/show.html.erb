@@ -11,37 +11,30 @@
         </a>
       </div>
 
-      <!-- Edit link plan start -->
       <div class="col">
         <a href="/plans/<%= @plan.id %>/edit" class="btn btn-block btn-outline-secondary">
           Edit plan
         </a>
       </div>
-      <!-- Edit link plan end -->
 
-      <!-- Delete link plan start -->
       <div class="col">
         <a href="/delete_plan/<%= @plan.id %>" class="btn btn-block btn-outline-secondary">
           Delete plan
         </a>
       </div>
-      <!-- Delete link plan end -->
     </div>
 
     <dl>
       <dt>
         Plan description
       </dt>
-      <!-- Display plan_description start -->
       <dd>
         <%= @plan.plan_description %>
       </dd>
-      <!-- Display plan_description end -->
 
       <dt>
         Coach
       </dt>
-      <!-- Display coach_id start -->
       <dd>
         <% if @plan.coach.present? %>
           <a href="/teachers/<%= @plan.coach_id %>">
@@ -49,12 +42,10 @@
           </a>
         <% end %>
       </dd>
-      <!-- Display coach_id end -->
 
       <dt>
         Plan owner
       </dt>
-      <!-- Display plan_owner_id start -->
       <dd>
         <% if @plan.plan_owner.present? %>
           <a href="/teachers/<%= @plan.plan_owner_id %>">
@@ -62,28 +53,21 @@
           </a>
         <% end %>
       </dd>
-      <!-- Display plan_owner_id end -->
 
       <dt>
         Created at
       </dt>
-      <!-- Display created_at start -->
       <dd>
         <%= time_ago_in_words(@plan.created_at) %> ago
       </dd>
-      <!-- Display created_at end -->
 
       <dt>
         Updated at
       </dt>
-      <!-- Display updated_at start -->
       <dd>
         <%= time_ago_in_words(@plan.updated_at) %> ago
       </dd>
-      <!-- Display updated_at end -->
     </dl>
   </div>
 </div>
 
-<!-- Show Page Customization starts -->
-<!-- Show Page Customization end -->
