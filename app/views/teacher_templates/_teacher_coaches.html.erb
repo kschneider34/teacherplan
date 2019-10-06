@@ -1,17 +1,17 @@
 <div class="card">
   <div class="card-header d-flex align-items-center justify-content-between">
-    Plans
+    Coaches
 
-    <a data-toggle="collapse" href="#teacher_plans_new_form">
-      Add plan
+    <a data-toggle="collapse" href="#teacher_coaches_new_form">
+      Add coach
     </a>
   </div>
 
   <ul class="list-group list-group-flush">
-    <% @teacher.plans.each do |plan| %>
+    <% @teacher.coaches.each do |coach| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <a href="/plans/<%= plan.id %>">
-          <%= plan.plan_description %>
+        <a href="/coaches/<%= coach.id %>">
+          <%= coach.name %>
         </a>
 
       </li>

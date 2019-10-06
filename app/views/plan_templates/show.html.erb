@@ -33,17 +33,6 @@
       </dd>
 
       <dt>
-        Coach
-      </dt>
-      <dd>
-        <% if @plan.coach.present? %>
-          <a href="/teachers/<%= @plan.coach_id %>">
-            <%= @plan.coach.name %>
-          </a>
-        <% end %>
-      </dd>
-
-      <dt>
         Plan owner
       </dt>
       <dd>
@@ -52,6 +41,13 @@
             <%= @plan.plan_owner.name %>
           </a>
         <% end %>
+      </dd>
+
+      <dt>
+        Coach
+      </dt>
+      <dd>
+        <%= @plan.coach_id %>
       </dd>
 
       <dt>

@@ -1,6 +1,6 @@
-ActiveAdmin.register Plan do
+ActiveAdmin.register Coach do
 
- permit_params :plan_description, :plan_owner_id, :coach_id
+ permit_params :coach_id, :name
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #

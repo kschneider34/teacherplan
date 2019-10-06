@@ -26,19 +26,19 @@
   </div>
 
   <div class="form-group">
-    <label for="coach_id">
-      Coach
-    </label>
-
-    <%= select_tag(:coach_id, options_from_collection_for_select(Teacher.all, :id, :name, @plan.coach_id), :class => "form-control") %>
-  </div>
-
-  <div class="form-group">
     <label for="plan_owner_id">
       Plan owner
     </label>
 
     <%= select_tag(:plan_owner_id, options_from_collection_for_select(Teacher.all, :id, :name, @plan.plan_owner_id), :class => "form-control") %>
+  </div>
+
+  <div class="form-group">
+    <label for="coach_id">
+      Coach
+    </label>
+
+    <input type="text" id="coach_id" name="coach_id" class="form-control" value="<%= @plan.coach_id %>">
   </div>
 
   <button class="btn btn-block btn-outline-secondary">
