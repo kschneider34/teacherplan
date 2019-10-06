@@ -1,6 +1,10 @@
 class Teacher < ApplicationRecord
   # Direct associations
 
+  has_one    :plan,
+             :foreign_key => "plan_owner_id",
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
