@@ -51,7 +51,7 @@
     </label>
 
     <!-- Input for plan_owner_id start -->
-    <input type="text" id="plan_owner_id" name="plan_owner_id" class="form-control" value="<%= @plan.plan_owner_id %>">
+    <%= select_tag(:plan_owner_id, options_from_collection_for_select(Teacher.all, :id, :name, @plan.plan_owner_id), :class => "form-control") %>
     <!-- Input for plan_owner_id end -->
   </div>
   <!-- Label and input for plan_owner_id end -->
