@@ -1,7 +1,7 @@
 class Teacher < ApplicationRecord
   # Direct associations
 
-  has_many   :plans,
+  has_many   :coaches,
              :foreign_key => "coach_id",
              :dependent => :destroy
 

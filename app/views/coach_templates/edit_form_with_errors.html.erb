@@ -1,0 +1,42 @@
+<% if @coach.errors.any? %>
+  <% @coach.errors.full_messages.each do |message| %>
+    <div class="alert">
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<h1>
+  Edit coach #<%= @coach.id %>
+</h1>
+
+<hr>
+
+<form action="/update_coach/<%= @coach.id %>" method="post">
+
+  <div class="form-group">
+    <label for="coach_id">
+      Coach
+    </label>
+
+    <%= select_tag(:coach_id, options_from_collection_for_select(Teacher.all, :id, :name, @coach.coach_id), :class => "form-control") %>
+  </div>
+
+  <div class="form-group">
+    <label for="name">
+      Name
+    </label>
+
+    <input type="text" id="name" name="name" class="form-control" value="<%= @coach.name %>">
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Update coach
+  </button>
+</form>
+
+<hr>
+
+<a href="/coaches">
+  Go back
+</a>

@@ -1,7 +1,7 @@
 class PlansController < ApplicationController
   def index
     @q = Plan.ransack(params[:q])
-    @plans = @q.result(:distinct => true).includes(:plan_owner, :coach).page(params[:page]).per(10)
+    @plans = @q.result(:distinct => true).includes(:plan_owner).page(params[:page]).per(10)
 
     render("plan_templates/index.html.erb")
   end
@@ -22,8 +22,8 @@ class PlansController < ApplicationController
     @plan = Plan.new
 
     @plan.plan_description = params.fetch("plan_description")
-    @plan.coach_id = params.fetch("coach_id")
     @plan.plan_owner_id = params.fetch("plan_owner_id")
+    @plan.coach_id = params.fetch("coach_id")
 
     if @plan.valid?
       @plan.save
@@ -44,8 +44,8 @@ class PlansController < ApplicationController
     @plan = Plan.find(params.fetch("id_to_modify"))
 
     @plan.plan_description = params.fetch("plan_description")
-    @plan.coach_id = params.fetch("coach_id")
     @plan.plan_owner_id = params.fetch("plan_owner_id")
+    @plan.coach_id = params.fetch("coach_id")
 
     if @plan.valid?
       @plan.save
@@ -54,14 +54,6 @@ class PlansController < ApplicationController
     else
       render("plan_templates/edit_form_with_errors.html.erb")
     end
-  end
-
-  def destroy_row_from_coach
-    @plan = Plan.find(params.fetch("id_to_remove"))
-
-    @plan.destroy
-
-    redirect_to("/teachers/#{@plan.coach_id}", notice: "Plan deleted successfully.")
   end
 
   def destroy_row

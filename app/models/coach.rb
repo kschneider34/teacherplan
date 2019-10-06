@@ -1,7 +1,7 @@
-class Plan < ApplicationRecord
+class Coach < ApplicationRecord
   # Direct associations
 
-  belongs_to :plan_owner,
+  belongs_to :coach,
              :class_name => "Teacher"
 
   # Indirect associations
