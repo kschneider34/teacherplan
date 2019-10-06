@@ -68,13 +68,21 @@
 
         <!-- Display plan.coach_id start -->
         <td>
-          <%= plan.coach.name %>
+          <% if plan.coach.present? %>
+            <a href="/teachers/<%= plan.coach.id %>">
+              <%= plan.coach.name %>
+            </a>
+          <% end %>
         </td>
         <!-- Display plan.coach_id end -->
 
         <!-- Display plan.plan_owner_id start -->
         <td>
-          <%= plan.plan_owner.name %>
+          <% if plan.plan_owner.present? %>
+            <a href="/teachers/<%= plan.plan_owner.id %>">
+              <%= plan.plan_owner.name %>
+            </a>
+          <% end %>
         </td>
         <!-- Display plan.plan_owner_id end -->
 
